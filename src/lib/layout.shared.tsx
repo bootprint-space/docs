@@ -8,8 +8,13 @@ export const baseOptions = (): BaseLayoutProps => {
         <div className="flex items-center justify-center h-11 w-11">
           <img 
             src="https://cdn.bootprint.space/logo_light.png" 
-            alt="Bootprint Logo"
-            className="w-11 h-11 object-contain select-none pointer-events-none transition-all dark:invert dark:hue-rotate-180"
+            alt="Bootprint Logo" 
+            className="w-11 h-11 object-contain select-none pointer-events-none block dark:hidden"
+          />
+          <img 
+            src="https://cdn.bootprint.space/logo_dark.png" 
+            alt="Bootprint Logo" 
+            className="w-11 h-11 object-contain select-none pointer-events-none hidden dark:block"
           />
         </div>
       ),
