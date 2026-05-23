@@ -2,7 +2,6 @@ import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
-// 1. Import your baseOptions function from your shared configuration file
 import { baseOptions } from '@/lib/layout.shared'; 
 
 const inter = Inter({

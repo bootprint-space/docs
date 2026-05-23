@@ -24,8 +24,9 @@ export const baseOptions = (): BaseLayoutProps => {
         type: 'static',
       },
     },
+    discordUrl: 'https://discord.gg/nxR5YN6R9q',
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
   } as unknown as BaseLayoutProps;
-
+  
   return opts;
 };
