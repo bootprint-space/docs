@@ -1,0 +1,42 @@
+{
+  "name": "bootprint-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "postinstall": "fumadocs-mdx",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-presence": "^1.1.5",
+    "@radix-ui/react-scroll-area": "^1.2.10",
+    "class-variance-authority": "^0.7.1",
+    "fumadocs-core": "16.9.1",
+    "fumadocs-mdx": "15.0.8",
+    "fumadocs-ui": "16.9.1",
+    "lucide-react": "^1.16.0",
+    "next": "16.2.6",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "scroll-into-view-if-needed": "^3.1.0",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^25.8.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.6",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  }
+}

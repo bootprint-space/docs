@@ -1,0 +1,107 @@
+---
+title: Endpoints
+description: Full reference for all Bootprint API endpoints.
+---
+
+## All Data
+
+The **All Data** endpoint returns a random image and fact for a specific celestial object.
+
+### Endpoint
+
+**GET** `/all`
+
+#### Base URL
+https://api.bootprint.space/all
+
+### Example Request
+
+```bash
+curl -X GET "https://api.bootprint.space/all/mars"
+```
+
+### Parameters
+
+| Parameter | Type   | Description                                          | Required |
+|-----------|--------|------------------------------------------------------|----------|
+| object    | string | The celestial object name (e.g., `mars`, `jupiter`, `moon`) | Yes |
+
+### Example Response
+
+```json
+{
+  "object": "mars",
+  "image": "https://cdn.bootprint.space/mars/1.png",
+  "image_id": "c3a1f9a7-29e4-4f91-9f1c-7d2e987f8d7d",
+  "fact": "Mars is home to the tallest mountain in the solar system.",
+  "fact_id": "e8b4b024-52b7-4d1c-b64b-329d6c0f3f0e"
+}
+```
+
+## Random Image
+
+The **Random Image** endpoint returns only a random image URL for a specific celestial object.
+
+### Endpoint
+
+**GET** `/img`
+
+#### Base URL
+https://api.bootprint.space/img
+
+### Example Request
+
+```bash
+curl -X GET "https://api.bootprint.space/img/mars"
+```
+
+### Example Response
+
+```json
+{
+  "object": "mars",
+  "image": "https://cdn.bootprint.space/mars/1.png",
+  "image_id": "c3a1f9a7-29e4-4f91-9f1c-7d2e987f8d7d"
+}
+```
+
+## Random Fact
+
+The **Random Fact** endpoint returns only a random fact for a specific celestial object.
+
+### Endpoint
+
+**GET** `/fact`
+
+#### Base URL
+https://api.bootprint.space/fact
+
+### Example Request
+
+```bash
+curl -X GET "https://api.bootprint.space/fact/mars"
+```
+
+### Example Response
+
+```json
+{
+  "object": "mars",
+  "fact": "Mars is home to the tallest mountain in the solar system.",
+  "fact_id": "e8b4b024-52b7-4d1c-b64b-329d6c0f3f0e"
+}
+```
+
+## Error Responses
+
+If the request is invalid or the object is not supported, the API will return an error.
+
+```json
+{
+  "error": "Invalid object name. Please provide a valid celestial object."
+}
+```
+
+## Rate Limiting
+
+The Bootprint API currently does not impose strict rate limits. Please be mindful of excessive requests to ensure fair usage for all users.
