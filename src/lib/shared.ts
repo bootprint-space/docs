@@ -5,6 +5,6 @@ export const docsContentRoute = '/llms.mdx/docs';
 
 export const gitConfig = {
   user: 'bootprint-space',
-  repo: 'docs',
+  repo: '',
   branch: 'main',
 };
