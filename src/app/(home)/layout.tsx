@@ -3,13 +3,12 @@ import { baseOptions } from '@/lib/layout.shared';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const options = baseOptions();
-  
+
   return (
-    <HomeLayout 
-      {...options} 
-      nav={{ 
-        ...options.nav, 
-        enabled: false
+  <HomeLayout
+      {...options}
+      nav={{
+        enabled: true,
       }}
     >
       {children}

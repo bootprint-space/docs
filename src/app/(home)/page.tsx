@@ -1,46 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import BootprintBackground from '@/components/background';
-
-function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-  }, []);
-
-  const toggleTheme = () => {
-    const nextIsDark = !document.documentElement.classList.contains('dark');
-    document.documentElement.classList.toggle('dark', nextIsDark);
-    setIsDark(nextIsDark);
-  };
-
-  return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      aria-label="Toggle theme"
-      className="inline-flex items-center justify-center rounded-full border border-fd-border bg-fd-background px-3 py-1.5 text-sm hover:bg-fd-accent transition-colors"
-    >
-      {isDark ? 'Light' : 'Dark'}
-    </button>
-  );
-}
 
 export default function HomePage() {
   return (
     <main className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center overflow-hidden">
       <BootprintBackground />
-
-      <div className="absolute top-4 right-4 z-10">
-        <ThemeToggle />
-      </div>
-
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-30 dark:opacity-20"
+          className="absolute inset-0 opacity-30 dark:hidden"
           style={{
             backgroundImage:
               'linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)',
@@ -53,15 +22,12 @@ export default function HomePage() {
       <p className="text-sm font-medium text-fd-muted-foreground mb-4 tracking-wide uppercase">
         Bootprint API
       </p>
-
       <h1 className="text-5xl font-bold tracking-tight mb-4">
         Explore the universe
       </h1>
-
       <p className="text-lg text-fd-muted-foreground max-w-md mb-8">
         Images and facts of the cosmos, free and open for everyone.
       </p>
-
       <div className="flex gap-3 mb-8">
         <Link
           href="/docs"
@@ -78,7 +44,6 @@ export default function HomePage() {
           GitHub
         </a>
       </div>
-
       <div className="mb-12">
         <a
           href="https://status.bootprint.space"
@@ -90,7 +55,6 @@ export default function HomePage() {
           All services online
         </a>
       </div>
-
       <div className="border border-fd-border rounded-2xl p-8 max-w-md w-full">
         <div className="text-3xl mb-3">🔭</div>
         <h2 className="text-xl font-semibold mb-2">Hubble</h2>
