@@ -36,17 +36,29 @@ export default function HomePage() {
           GitHub
         </a>
       </div>
-      <div className="mb-12">
+      
+      {/* Phare Live Status Badge */}
+      <div className="mb-12 flex justify-center">
         <a
           href="https://status.bootprint.space"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-fd-muted-foreground hover:text-fd-foreground transition-colors"
+          className="hover:opacity-80 transition-opacity rounded-md overflow-hidden"
+          aria-label="View system status"
         >
-          <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-          All services online
+          <iframe 
+            src="https://status.bootprint.space/embed-badges/live-status?align=start&background-light=f5f5f5&text-light=000000&background-dark=171717&text-dark=ffffff" 
+            width="190" 
+            height="30" 
+            loading="lazy" 
+            frameBorder="0" 
+            scrolling="no" 
+            style={{ colorScheme: 'light dark', pointerEvents: 'none' }}
+            title="System Status"
+          />
         </a>
       </div>
+
       <div className="relative z-10 bg-fd-background border border-fd-border rounded-2xl p-8 max-w-md w-full">
         <div className="text-3xl mb-3">🔭</div>
         <h2 className="text-xl font-semibold mb-2">Hubble</h2>
