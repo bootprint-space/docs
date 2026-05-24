@@ -20,6 +20,9 @@ export default function BootprintBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const img = new Image();
+    img.src = 'https://cdn.bootprint.space/logo_dark.png';
+
     let animationFrameId: number;
     let prints: Print[] = [];
 
@@ -33,17 +36,17 @@ export default function BootprintBackground() {
     };
 
     const drawLunarBootprint = (
-      ctx: CanvasRenderingContext2D, 
-      x: number, 
-      y: number, 
-      angle: number, 
-      isLeft: boolean, 
+      ctx: CanvasRenderingContext2D,
+      x: number,
+      y: number,
+      angle: number,
+      isLeft: boolean,
       alpha: number
     ) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle + Math.PI / 2);
-      
+
       const strokeColor = document.documentElement.classList.contains('dark')
         ? `rgba(255, 255, 255, ${alpha * 0.18})`
         : `rgba(0, 0, 0, ${alpha * 0.12})`;
@@ -78,7 +81,7 @@ export default function BootprintBackground() {
       for (let i = prints.length - 1; i >= 0; i--) {
         const p = prints[i];
 
-        p.alpha -= 0.0018; 
+        p.alpha -= 0.0018;
 
         if (p.alpha <= 0) {
           prints.splice(i, 1);
@@ -109,7 +112,7 @@ export default function BootprintBackground() {
       if (distance > stepDistance) {
         const angle = Math.atan2(dy, dx);
 
-        const sideOffset = 14; 
+        const sideOffset = 14;
         const offsetX = Math.cos(angle + Math.PI / 2) * (isLeftStep ? -sideOffset : sideOffset);
         const offsetY = Math.sin(angle + Math.PI / 2) * (isLeftStep ? -sideOffset : sideOffset);
 
@@ -119,11 +122,11 @@ export default function BootprintBackground() {
           angle: angle,
           isLeft: isLeftStep,
           alpha: 1.0,
-          scale: 1.0
+          scale: 1.0,
         });
 
         isLeftStep = !isLeftStep;
-        
+
         lastPos.x = currentX;
         lastPos.y = currentY;
       }
@@ -131,7 +134,7 @@ export default function BootprintBackground() {
 
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     resizeCanvas();
     animate();
 
