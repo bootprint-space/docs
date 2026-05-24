@@ -1,8 +1,18 @@
+'use client';
+
 import Link from 'next/link';
+
+const BootprintBackground: React.FC = () => (
+  <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+    <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300" />
+  </div>
+);
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
+    <main className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center overflow-hidden">
+      <BootprintBackground />
+
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
           className="absolute inset-0 opacity-30 dark:opacity-20"
