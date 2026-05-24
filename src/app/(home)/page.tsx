@@ -8,14 +8,6 @@ export default function HomePage() {
     <main className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center overflow-hidden">
       <BootprintBackground />
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-30 dark:hidden"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-black" />
       </div>
 
@@ -55,7 +47,7 @@ export default function HomePage() {
           All services online
         </a>
       </div>
-      <div className="border border-fd-border rounded-2xl p-8 max-w-md w-full">
+      <div className="relative z-10 bg-fd-background border border-fd-border rounded-2xl p-8 max-w-md w-full">
         <div className="text-3xl mb-3">🔭</div>
         <h2 className="text-xl font-semibold mb-2">Hubble</h2>
         <p className="text-sm text-fd-muted-foreground mb-6">
