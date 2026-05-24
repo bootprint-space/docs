@@ -1,13 +1,18 @@
 import Link from 'next/link';
-import { gitConfig } from '@/lib/shared'; 
-import BootprintBackground from '@/components/background'; 
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen px-4 text-center relative overflow-hidden">
+    <main className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <BootprintBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-black opacity-80 pointer-events-none" />
+        <div
+          className="absolute inset-0 opacity-30 dark:opacity-20"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-black" />
       </div>
 
       <p className="text-sm font-medium text-fd-muted-foreground mb-4 tracking-wide uppercase">
@@ -22,16 +27,15 @@ export default function HomePage() {
         Images and facts of the cosmos, free and open for everyone.
       </p>
 
-      <div className="flex gap-3 z-10">
+      <div className="flex gap-3 mb-8">
         <Link
           href="/docs"
           className="inline-flex items-center gap-1.5 rounded-full bg-fd-foreground text-fd-background px-5 py-2 text-sm font-medium hover:opacity-80 transition-opacity"
         >
           Get started →
         </Link>
-        
         <a
-          href={`https://github.com/${gitConfig.user}/${gitConfig.repo}`}
+          href="https://github.com/bootprint-space"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 rounded-full border border-fd-border px-5 py-2 text-sm font-medium hover:bg-fd-accent transition-colors"
@@ -40,21 +44,38 @@ export default function HomePage() {
         </a>
       </div>
 
-      <div className="mt-8 min-h-[30px] flex items-center justify-center z-10">
+      <div className="mb-12">
         <a
           href="https://status.bootprint.space"
           target="_blank"
           rel="noreferrer"
-          className="inline-block transition-opacity hover:opacity-80"
+          className="inline-flex items-center gap-2 text-sm text-fd-muted-foreground hover:text-fd-foreground transition-colors"
         >
-          <iframe 
-            src="https://status.bootprint.space/embed-badges/live-status?align=start&background-light=ffffff00&text-light=71717a" 
-            width="190" 
-            height="30" 
-            loading="lazy"
-            className="pointer-events-none dark:invert dark:brightness-150"
-          />
+          <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
+          All services online
         </a>
+      </div>
+
+      <div className="border border-fd-border rounded-2xl p-8 max-w-md w-full">
+        <div className="text-3xl mb-3">🔭</div>
+        <h2 className="text-xl font-semibold mb-2">Hubble</h2>
+        <p className="text-sm text-fd-muted-foreground mb-6">
+          The official Bootprint Discord bot. Explore the universe directly in your server with slash commands.
+        </p>
+        <div className="flex gap-3 justify-center">
+          <a
+            href="https://discord.com/oauth2/authorize?client_id=1346600888919261194&permissions=0&scope=bot+applications.commands&redirect_uri=https://bootprint.space/hubble/success&response_type=code"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[#5865F2] text-white px-5 py-2 text-sm font-medium hover:opacity-80 transition-opacity"
+          >
+            Add to Discord →
+          </a>
+          <Link
+            href="/docs/hubble"
+            className="inline-flex items-center gap-1.5 rounded-full border border-fd-border px-5 py-2 text-sm font-medium hover:bg-fd-accent transition-colors"
+          >
+            Learn more
+          </Link>
+        </div>
       </div>
     </main>
   );
