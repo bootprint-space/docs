@@ -1,17 +1,42 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import BootprintBackground from '@/components/background';
 
-const BootprintBackground: React.FC = () => (
-  <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-    <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300" />
-  </div>
-);
+function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    const nextIsDark = !document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', nextIsDark);
+    setIsDark(nextIsDark);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      className="inline-flex items-center justify-center rounded-full border border-fd-border bg-fd-background px-3 py-1.5 text-sm hover:bg-fd-accent transition-colors"
+    >
+      {isDark ? 'Light' : 'Dark'}
+    </button>
+  );
+}
 
 export default function HomePage() {
   return (
     <main className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center overflow-hidden">
       <BootprintBackground />
+
+      <div className="absolute top-4 right-4 z-10">
+        <ThemeToggle />
+      </div>
 
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div
